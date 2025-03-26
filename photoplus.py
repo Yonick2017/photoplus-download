@@ -51,7 +51,7 @@ def download_image(url, image_path, image_name):
 def download_image_with_retries(url, image_path, image_name, retries=MAX_RETRIES):
     for attempt in range(1, retries + 1):
         try:
-            response = requests.get(url, stream=True)
+            response = requests.get(url, stream=True, timeout=30)
             response.raise_for_status()  # 如果响应状态不是200，就主动抛出异常
             with open(os.path.join(image_path, image_name), 'wb') as out_file:
                 out_file.write(response.content)
