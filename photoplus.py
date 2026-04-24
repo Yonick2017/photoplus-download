@@ -58,6 +58,7 @@ def download_image_with_retries(url, image_path, image_name, retries=MAX_RETRIES
             return True, None  # 下载成功
         except requests.RequestException as err:
             if attempt < retries:
+                print(f"Failed to download {url} on attempt {attempt}/{retries}. Retrying...")
                 time.sleep(2)  # 等待 2 秒后重试
             else:
                 return False, f"Failed to download {url} after {retries} retries: {err}"
