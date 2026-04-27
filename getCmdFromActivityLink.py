@@ -23,7 +23,7 @@ def get_cmd_from_activity_link(url, prefix, suffix):
             print(f"{prefix} --activity-loc-date {date}{city} --total-pics {total_pics} --id {id} --activity-name {activity_name} {suffix}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='get commands for download images from photoplus link. An example would be python .\getCmdFromActivityLink.py --prefix="photoplus_250331_0007.exe" --suffix="--download-continuous" --url="')
+    parser = argparse.ArgumentParser(description='get commands for download images from photoplus link. An example would be python getCmdFromActivityLink.py --prefix="photoplus_250331_0007.exe" --suffix="--download-continuous" --url="')
     parser.add_argument('--url', type=str, required=True, help='activity link')
     parser.add_argument('--prefix', type=str, default='', help='command prefix')
     parser.add_argument('--suffix', type=str, default='', help='command suffix')
